@@ -1,0 +1,16 @@
+*{
+    display: flex;
+    flex-direction: column;
+    padding:.11rem;
+}
+USN{
+    color: red;
+    font-size: 1rem;
+}
+NAME{
+    color: rgb(38, 0, 255);
+}   
+MOBILE{
+    color: rgb(255, 0, 200);
+    
+}

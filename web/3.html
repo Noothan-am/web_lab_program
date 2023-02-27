@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = prompt("enter the value"); // promp by default make it string
+        let rev = 0;
+        let rem = 0;
+        if(!isNaN(str)){ // makes the str string to number and cheks if number or not and returns true if number
+            let data = parseInt(str); // parseInt
+            while(data != 0){
+                rem = data%10;
+                rev = rev * 10 + rem;
+                data = parseInt(data/10);  // parseInt
+            }
+            alert("reverse of a number is "+rev);
+        }
+        else{
+            str = str.toLowerCase(); // make it to lowercase by default 
+            for (let i = 0; i < str.length; i++) {
+                const element = str.charAt(i);
+                if(element == "a" || element == "e" || element == "i" || element == "o" || element == "u"){
+                    let n = parseInt(i);
+                    const val = n+1;
+                    alert("positon of ovel is "+ val);
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

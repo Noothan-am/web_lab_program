@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Text Resizer</title>
+    <style>
+        *{
+            font-size: 5px;
+            color: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+        }
+    </style>
+</head>
+
+<body>
+    <p id="text">TEXT GROWING</p>
+    <script>
+        let p = document.getElementById("text");
+        let size = 5;
+        let ans = true;
+        setInterval(() => {
+            if (ans) {
+                size += 5;
+                p.style.fontSize = size+"px";
+                p.style.color = "red";
+                if (size >= 50) {
+                    ans = false;
+                    p.innerHTML = "TEXT SHRINKING";
+                }
+            }
+            else {
+                size -= 5;
+                p.setAttribute('style', "color:blue");
+                p.style.fontSize = size+"px";
+                if (size <= 5) {
+                    ans = true;
+                    p.innerHTML = "TEXT GROWING";
+                    // p.innerHTML = "TEXT SHRINKING";
+                }
+            }
+
+        }, 1000)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            text-align: center;
+            padding: 3px;
+        }
+
+        table {
+            margin: 4rem;
+        }
+
+        table,
+        tr,
+        td {
+            background-color: yellowgreen;
+            border: 1px solid rgb(85, 0, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th colspan="2">Simple Calculator</th>
+        </tr>
+        <tr>
+            <td>value1</td>
+            <td><input type="number" id="value1"></td>
+        </tr>
+        <tr>
+            <td>value2</td>
+            <td><input type="number" id="value2"></td>
+        </tr>
+        <tr>
+            <td><input type="button" id="+" onclick="calculate(this.id)" value="addition"></td>
+            <td><input type="button" id="-" onclick="calculate(this.id)" value="substraction"></td>
+        </tr>
+        <tr>
+            <td><input type="button" id="*" onclick="calculate(this.id)" value="Multiplication"></td>
+            <td><input type="button" id="/" onclick="calculate(this.id)" value="divition"></td>
+        </tr>
+        <tr>
+            <td>answer</td>
+            <td><input type="text" disabled id="answer"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" value="Clear Values" id="cls" onclick="cls()"></td>
+        </tr>
+    </table>
+    <script>
+        const cls = () => {
+            clear("value1");
+            clear("value2");
+            clear("answer");
+        }
+        const clear = (id) => {
+            document.getElementById(id).value = "";
+            document.getElementById(id).style.backgroundColor = "white";
+        }
+        const calculate = (id) => {
+            console.log("i am clicked");
+            const value1 = parseFloat(document.getElementById("value1").value);
+            const value2 = parseFloat(document.getElementById("value2").value);
+            var result = 0;
+            if (isNaN(value1) || isNaN(value2)) {
+                document.getElementById("answer").value = "Error";
+                document.getElementById("answer").style.backgroundColor = "yellow";
+                document.getElementById("answer").style.color = "red";
+            }
+            else {
+                if (id == "+") {
+                    result = value1 + value2;
+                }
+                else if (id == "-") {
+                    result = value1 - value2;
+                }
+                else if (id == "*") {
+                    result = value1 * value2;
+                }
+                else if (id == "/") {
+                    result = value1 / value2;
+                }
+                document.getElementById("answer").value = result;
+                document.getElementById("answer").style.backgroundColor = "green";
+                document.getElementById("answer").style.color = "white";
+            }
+        }
+    </script>
+</body>
+
+</html>
